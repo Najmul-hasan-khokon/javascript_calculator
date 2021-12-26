@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="calculator_area" class="calculator_area">
+      <h1 class="title">Simple Calculator</h1>
+
+      <div class="calculator_items">
+        <div class="item">
+          <input type="text" id="output" class="inputField" />
+        </div>
+        <div class="item_one item" id="calculator">
+          <button class="Btn">7</button>
+          <button class="Btn">8</button>
+          <button class="Btn">9</button>
+          <button class="Btn">/</button>
+          <button class="Btn">6</button>
+          <button class="Btn">5</button>
+          <button class="Btn">4</button>
+          <button class="Btn">*</button>
+          <button class="Btn">3</button>
+          <button class="Btn">2</button>
+          <button class="Btn">1</button>
+          <button class="Btn">-</button>
+          <button class="Btn" id="reset">C</button>
+          <button class="Btn">0</button>
+          <button class="Btn" id="equal">=</button>
+          <button class="Btn">+</button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const calculator = document.getElementById("calculator");
+      calculator.addEventListener("click", function (e) {
+        const btnClickNumber = e.target.innerText;
+
+        if (btnClickNumber == "C") {
+          const output = document.getElementById("output");
+          output.value = " ";
+        } else if (btnClickNumber == "=") {
+          // console.log(" = bad hoye jabe");
+        } else {
+          const output = document.getElementById("output");
+          output.value = output.value + btnClickNumber;
+        }
+      });
+
+      const equal = document.getElementById("equal");
+      equal.addEventListener("click", function () {
+        const output = document.getElementById("output");
+        // eval()  value ke jog biyug korte hole eval  fucntion er vitore dite hobe..
+        const result = eval(output.value);
+
+        // = dile hisab ses hoye output e result update hoye jabe.
+        document.getElementById("output").value = result;
+      });
+    </script>
+  </body>
+</html>
